@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme {
+  --color-brand: #fa7275;
+  --color-brand-100: #ea6365;
+  --color-red: #ff7474;
+  --color-error: #b80000;
+  --color-green: #3dd9b3;
+  --color-blue: #56b8ff;
+  --color-pink: #eea8fd;
+  --color-orange: #f9ab72;
+  --color-light-100: #333f4e;
+  --color-light-200: #a3b2c7;
+  --color-light-300: #f2f5f9;
+  --color-light-400: #f2f4f8;
+  --color-dark-100: #04050c;
+  --color-dark-200: #131524;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@utility center {
+  @apply flex h-screen items-center justify-center bg-amber-100;
+}
+/* ===== TYPOGRAPHY */
+@utility h1 {
+  @apply text-[34px] leading-[42px] font-bold;
+}
+@utility h2 {
+  @apply text-[24px] leading-[36px] font-bold;
+}
+@utility h3 {
+  @apply text-[20px] leading-[28px] font-semibold;
+}
+@utility h4 {
+  @apply text-[18px] leading-[20px] font-medium;
+}
+@utility h5 {
+  @apply text-[16px] leading-[24px] font-semibold;
+}
+@utility subtitle-1 {
+  @apply text-[16px] leading-[24px] font-medium;
+}
+@utility subtitle-2 {
+  @apply text-[14px] leading-[20px] font-semibold;
+}
+@utility body-1 {
+  @apply text-[16px] leading-[24px] font-normal;
+}
+@utility body-2 {
+  @apply text-[14px] leading-[20px] font-normal;
+}
+@utility button {
+  @apply text-[14px] leading-[20px] font-medium;
+}
+@utility caption {
+  @apply text-[12px] leading-[16px] font-normal;
+}
+@utility overline {
+  @apply text-[10px] leading-[14px] font-normal;
+}
+
+/* ===== HELPER CLASSES */
+@utility container {
+  @apply mx-auto max-w-7xl px-5;
+}
+@utility primary-btn {
+  @apply bg-brand hover:bg-brand-100 transition-all rounded-full button;
+}
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+/* ===== SHADCN OVERRIDES */
+@utility shad-no-focus {
+  @apply outline-none ring-offset-transparent focus:ring-transparent focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0;
+}
+@utility shad-input {
+  @apply border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2;
+}
+@utility shad-form-item {
+  @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4;
+}
+@utility shad-form-label {
+  @apply text-light-100 pt-2 body-2 w-full;
+}
+@utility shad-form-message {
+  @apply text-red body-2 ml-4;
+}
+@utility shad-alert-dialog {
+  @apply space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none;
+}
+@utility shad-submit-btn {
+  @apply bg-brand button hover:bg-brand-100 transition-all rounded-full;
+}
+@utility shad-otp {
+  @apply w-full flex gap-1 sm:gap-2 justify-between;
+}
+@utility shad-otp-slot {
+  @apply text-[40px] font-medium rounded-xl ring-brand text-brand-100 justify-center flex border-2 border-light-300 size-12 md:size-16 gap-5;
+}
+
+/* ===== STYLE CLASSES */
+@utility main-content {
+  @apply h-full flex-1 overflow-auto bg-light-400 px-5 py-7 sm:mr-7 sm:rounded-[30px] md:mb-7 md:px-9 md:py-10;
+}
+@utility dashboard-container {
+  @apply mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 xl:gap-10;
+}
+@utility dashboard-summary-list {
+  @apply mt-6 grid grid-cols-1 gap-4 xl:mt-10 xl:grid-cols-2 xl:gap-9;
+}
+@utility dashboard-summary-card {
+  @apply relative mt-6 rounded-[20px] bg-white p-5 transition-all hover:scale-105;
+}
+@utility summary-type-icon {
+  @apply absolute -left-3 top-[-25px] z-10 w-[190px] object-contain;
+}
+@utility summary-type-size {
+  @apply h4 relative z-20 w-full text-right;
+}
+@utility summary-type-title {
+  @apply h5 relative z-20 text-center;
+}
+@utility dashboard-recent-files {
+  @apply h-full rounded-[20px] bg-white p-5 xl:p-8;
+}
+@utility recent-file-details {
+  @apply flex w-full flex-col xl:flex-row xl:justify-between;
+}
+@utility recent-file-name {
+  @apply subtitle-2 line-clamp-1 w-full text-light-100 sm:max-w-[200px] lg:max-w-[250px];
+}
+@utility recent-file-date {
+  @apply body-2 text-light-100/80;
+}
+@utility empty-list {
+  @apply body-1 mt-10 text-center text-light-200;
+}
